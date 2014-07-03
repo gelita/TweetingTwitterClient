@@ -4,4 +4,4 @@ Twitter Client
 
 Walkthrough of user stories:
 
-<img alt src="/gifTweet.gif" />
+<img alt src="/tweet.gif" />
