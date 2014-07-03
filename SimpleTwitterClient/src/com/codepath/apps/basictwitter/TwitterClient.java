@@ -2,7 +2,6 @@ package com.codepath.apps.basictwitter;
 
 import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
-
 import android.content.Context;
 
 import com.codepath.oauth.OAuthBaseClient;
@@ -33,42 +32,57 @@ public class TwitterClient extends OAuthBaseClient {
 	}
 
 	public void getAuthUser(AsyncHttpResponseHandler handler) {
-		String apiUrl = getApiUrl("account/verify_credentials.json");
-		RequestParams userParams = new RequestParams();		
-		userParams.put("name","name");
-		userParams.put("screen_name", "screenName");
-		userParams.put("profile_image_url", "profileImageURL");		
-		client.get(apiUrl, userParams, handler);
+		String apiUrl = getApiUrl("account/verify_credentials.json");		
+		client.get(apiUrl, null, handler);
 	}
 
-	public void getHomeTimeline(AsyncHttpResponseHandler handler, String maxId, int count){
+	public void getHomeTimeline(AsyncHttpResponseHandler handler,String maxId, int count){
 		String apiUrl = getApiUrl("statuses/home_timeline.json");
 		RequestParams params = new RequestParams();		
 		params.put("name","name");
 		params.put("screen_name", "screenName");
 		params.put("profile_image_url", "profileImageURL");
 		params.put("count", String.valueOf(count));
-		//if no params then put null and omit the params.put() method above
-		//check if maxTweetId is = 0 
 		if(maxId !="0") {
 			params.put("max_id", String.valueOf(maxId));
 		} else {
 			//if maxId==0 -> 1st run
 			params.put("since_id", "1");
 		}
-		client.get(apiUrl, params, handler);    
-	}
+		client.get(apiUrl, params, handler);
+	}	
 
 	public void postTweet(String newStatus, AsyncHttpResponseHandler handler){
 		String apiUrl = getApiUrl("statuses/update.json");
 		RequestParams requestParams = new RequestParams("status", newStatus);		
 		client.post(apiUrl, requestParams, handler);		
 	}
+	public void getUserInfo(String screen_name, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/user_timeline.json=?screen_name="+String.valueOf(screen_name));
+        client.get(apiUrl, null, handler);
+    }
 
 	public void getUserInfoById(AsyncHttpResponseHandler handler, long id){
 		String apiUrl = getApiUrl("users/lookup.json?user_id="+String.valueOf(id));
 		client.get(apiUrl, null, handler);
+		
+	}	
+
+	public void getMentionsTimeline(String maxId, int count,AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");			
+		RequestParams params = new RequestParams();		
+		params.put("count", String.valueOf(count));
+		//params.put("max_id", String.valueOf(maxId));
+		params.put("since_id", "1");		
+		client.get(apiUrl, params, handler);
 	}
+
+	
+	public void getUserTimeline(AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/user_timeline.json");
+		client.get(apiUrl, null, handler);		
+	}
+	
 
 	/*
     // CHANGE THIS

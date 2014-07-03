@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
+
     <ImageView
         android:id="@+id/ivProfileImage"
         android:layout_width="40dp"
@@ -11,23 +12,25 @@
         android:layout_alignParentTop="true"
         android:contentDescription="@string/profileImageDesc"
         android:src="@drawable/ic_launcher" />
-    
-     <TextView
+
+    <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ivProfileImage"
-        android:text="@string/label_name" />    
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/ivProfileImage" />
 
     <TextView
         android:id="@+id/tvScreenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ivProfileImage"
-        android:layout_below="@+id/tvName" 
-        android:text="@string/label_screenName" />   
-   
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/tvName"
+        android:layout_marginLeft="10dp"
+        
+        android:text="@string/label_screenName" />
+
     <EditText
         android:id="@+id/etBody"
         android:layout_width="wrap_content"

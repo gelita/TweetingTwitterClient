@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
 
     <application
         android:name="com.codepath.apps.basictwitter.TwitterApplication"
@@ -60,6 +59,14 @@
         <activity
             android:name="com.codepath.apps.basictwitter.menu_compose_tweet"
             android:label="@string/tweet" >
+        </activity>
+        <activity
+            android:name="com.codepath.apps.basictwitter.ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name="com.codepath.apps.basictwitter.UserActivity"
+            android:label="@string/title_activity_user" >
         </activity>
     </application>
 

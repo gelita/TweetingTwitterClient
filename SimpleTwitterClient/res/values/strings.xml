@@ -16,4 +16,13 @@
     <string name="hint_compose_tweet">What\'s happening? </string>
     <string name="label_name">User Name</string>
     <string name="cancel">Cancel</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="profile">Profile</string>
+    <string name="name">Name</string>
+    <string name="tagline">Tagline</string>
+    <string name="descrProfileImage">User Profile Image</string>
+    <string name="following">5 following</string>
+    <string name="followers">5 followers</string>
+    <string name="title_activity_user">UserProfile</string>
 </resources>

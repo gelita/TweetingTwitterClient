@@ -39,7 +39,7 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		ivProfileImage.setImageResource(android.R.color.transparent);
 		ImageLoader imageLoader = ImageLoader.getInstance();
 		//populate views with tweet data
-		imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), ivProfileImage);
+		imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), ivProfileImage);	
 		tvScreenName.setText(tweet.getUser().getScreenName());
 		tvBody.setText(tweet.getBody());
 		try {
